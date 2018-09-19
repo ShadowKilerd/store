@@ -6,3 +6,4 @@ build/
 classes/
 gradle.properties
 logs/
+out/
