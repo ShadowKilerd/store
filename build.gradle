@@ -7,13 +7,15 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath('org.flywaydb:flyway-gradle-plugin:5.1.4')
 	}
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.flywaydb.flyway'
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
@@ -25,8 +27,17 @@ repositories {
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.flywaydb:flyway-core')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('mysql:mysql-connector-java:6.0.6')
+	compile('org.flywaydb:flyway-core:5.1.4')
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+}
+
+flyway {
+	url = 'jdbc:mysql://localhost:3307/store'
+	user = 'root'
+	password = 'abc123'
 }
