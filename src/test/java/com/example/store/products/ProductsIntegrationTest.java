@@ -1,5 +1,6 @@
 package com.example.store.products;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class ProductsIntegrationTest {
     private TestRestTemplate restTemplate;
 
     @Test
+    @Ignore
     public void should_return_product_lists_when_call_get_products_list() {
         ResponseEntity<List<Product>> productsEntity = restTemplate.exchange
                 ("/api/products", HttpMethod.GET,

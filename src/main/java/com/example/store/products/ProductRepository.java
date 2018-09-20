@@ -1,12 +1,11 @@
 package com.example.store.products;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
 
-@Repository
-public class ProductRepository {
-    public List<Product> findAll() {
-        return null;
-    }
+public interface ProductRepository extends JpaRepository<Product, String> {
 }
+
+
+
+

@@ -44,7 +44,7 @@ public class ProductsControllerTest {
         product.setName("可乐");
         product.setPrice(BigDecimal.valueOf(4.5));
         product.setUnit("瓶");
-        product.setTotalAmount(BigDecimal.valueOf(10));
+        product.setTotalAmount(10);
         product.setImgUrl("/api/img/1");
         products.add(product);
 

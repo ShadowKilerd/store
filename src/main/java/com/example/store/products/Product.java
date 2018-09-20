@@ -1,14 +1,28 @@
 package com.example.store.products;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 
+@Entity
 public class Product {
 
+    @Id
+    private Integer id;
     private BigDecimal price;
     private String unit;
-    private BigDecimal totalAmount;
+    private Integer totalAmount;
     private String imgUrl;
     private String name;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return this.name;
@@ -30,11 +44,11 @@ public class Product {
         this.unit = unit;
     }
 
-    public BigDecimal getTotalAmount() {
+    public Integer getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(BigDecimal totalAmount) {
+    public void setTotalAmount(Integer totalAmount) {
         this.totalAmount = totalAmount;
     }
 
