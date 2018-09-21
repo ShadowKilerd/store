@@ -1,7 +1,7 @@
 package com.example.store.products;
 
-
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,7 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
+@Ignore
 public class ProductRepositoryTest {
     @Autowired
     private ProductRepository productRepository;
