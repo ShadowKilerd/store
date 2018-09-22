@@ -1,6 +1,7 @@
 package com.example.store.products;
 
-import org.junit.Ignore;
+import org.flywaydb.core.Flyway;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,16 @@ public class ProductsIntegrationTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
+    @Autowired
+    private Flyway flyway;
+
+    @Before
+    public void setUp() throws Exception {
+        flyway.clean();
+        flyway.migrate();
+    }
+
     @Test
-    @Ignore
     public void should_return_product_lists_when_call_get_products_list() {
         ResponseEntity<List<Product>> productsEntity = restTemplate.exchange
                 ("/api/products", HttpMethod.GET,
@@ -38,9 +47,9 @@ public class ProductsIntegrationTest {
         assertEquals(2, products.size());
         Product product = products.get(0);
         assertThat(product.getName(), is("可乐"));
-        assertThat(product.getPrice(), is(BigDecimal.valueOf(4.5)));
+        assertThat(product.getPrice().doubleValue(), is(4.50));
         assertThat(product.getUnit(), is("瓶"));
-        assertThat(product.getTotalAmount(), is(BigDecimal.valueOf(10)));
-        assertThat(product.getImgUrl(), is("/api/img/1"));
+        assertThat(product.getTotalAmount(), is(1000));
+        assertThat(product.getImgUrl(), is("/api/imgs/1"));
     }
 }

@@ -19,7 +19,6 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
-@Ignore
 public class ProductRepositoryTest {
     @Autowired
     private ProductRepository productRepository;
@@ -29,27 +28,7 @@ public class ProductRepositoryTest {
 
     @Test
     public void should_query_all_products_from_database() {
-
-        Product product = new Product();
-        product.setId(1);
-        product.setName("可乐");
-        product.setPrice(BigDecimal.valueOf(4.5));
-        product.setUnit("瓶");
-        product.setTotalAmount(10);
-        product.setImgUrl("/api/img/1");
-        entityManager.persist(product);
-
-        Product product1 = new Product();
-        product1.setId(2);
-        product1.setName("雪碧");
-        product1.setPrice(BigDecimal.valueOf(4.5));
-        product1.setUnit("瓶");
-        product1.setTotalAmount(10);
-        product1.setImgUrl("/api/img/2");
-        entityManager.persistAndFlush(product1);
-
         List<Product> products = productRepository.findAll();
-
         Assert.assertThat(products.size(), is(2));
     }
 
