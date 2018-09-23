@@ -3,6 +3,7 @@ package com.example.store.shoppingitems;
 import com.example.store.products.Product;
 
 public class ShoppingItem {
+    private String id;
     private Product product;
     private Integer amount;
 
@@ -20,5 +21,13 @@ public class ShoppingItem {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
     }
 }
