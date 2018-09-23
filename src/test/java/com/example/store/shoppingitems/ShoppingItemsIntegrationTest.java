@@ -29,7 +29,7 @@ public class ShoppingItemsIntegrationTest extends IntegrationTestBase {
         assertTrue(uri.getPath().startsWith("/api/users/user-id-1/shopping-items/"));
 
         String id = uri.getPath().substring("/api/users/user-id-1/shopping-items/".length());
-        Map<String, Object> itemSaved = jdbcTemplate.queryForMap("select * from shopping_items where user_id ='user-id-1' and id='" + id + "'");
+        Map<String, Object> itemSaved = jdbcTemplate.queryForMap("select * from shopping_item where user_id ='user-id-1' and id='" + id + "'");
         assertThat(Integer.parseInt(itemSaved.get("product_id").toString()), is(item.getProduct().getId()));
         assertThat(Integer.parseInt(itemSaved.get("amount").toString()), is(item.getAmount()));
     }
