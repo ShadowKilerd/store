@@ -1,9 +1,18 @@
 package com.example.store.shoppingitems;
 
 import com.example.store.products.Product;
+import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.*;
+
+@Entity
 public class ShoppingItem {
+    @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+    @OneToOne
+    @PrimaryKeyJoinColumn
     private Product product;
     private Integer amount;
 

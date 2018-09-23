@@ -1,5 +1,6 @@
-package com.example.store.products;
+package com.example.store.shoppingitems;
 
+import com.example.store.products.Product;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,26 +10,30 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
-
-import static org.hamcrest.core.Is.is;
+import static org.hamcrest.Matchers.is;
 import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.NONE;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
-public class ProductRepositoryTest {
+public class ShoppingItemRepositoryTest {
     @Autowired
-    private ProductRepository productRepository;
+    private ShoppingItemRepository shoppingItemRepository;
 
     @Autowired
     private TestEntityManager entityManager;
 
     @Test
-    public void should_query_all_products_from_database() {
-        List<Product> products = productRepository.findAll();
-        Assert.assertThat(products.size(), is(2));
-    }
+    public void should_save_shopping_item_to_database() {
+        ShoppingItem item = new ShoppingItem();
 
+        Product product = new Product();
+        product.setId(1);
+        item.setProduct(product);
+        item.setAmount(1);
+
+        ShoppingItem saved = shoppingItemRepository.save(item);
+        Assert.assertThat(saved.getId().length(), is(36));
+    }
 
 }
