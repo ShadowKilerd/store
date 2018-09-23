@@ -25,7 +25,7 @@ public class ShoppingItemsIntegrationTest extends IntegrationTestBase {
         item.getProduct().setId(1);
         item.setAmount(10);
 
-        URI uri = restTemplate.postForLocation("/api/users/user-id-1／shopping-items", item);
+        URI uri = restTemplate.postForLocation("/api/users/user-id-1/shopping-items", item);
         assertTrue(uri.getPath().startsWith("/api/users/user-id-1/shopping-items/"));
 
         String id = uri.getPath().substring("/api/users/user-id-1/shopping-items/".length());
