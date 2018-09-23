@@ -1,6 +1,6 @@
 package com.example.store.shoppingitems;
 
-import com.example.store.IntegrationTestBase;
+import com.example.store.base.IntegrationTestBase;
 import com.example.store.products.Product;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

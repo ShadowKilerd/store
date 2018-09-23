@@ -1,4 +1,4 @@
-package com.example.store;
+package com.example.store.base;
 
 import org.flywaydb.core.Flyway;
 import org.junit.Before;

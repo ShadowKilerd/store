@@ -1,6 +1,6 @@
 package com.example.store.products;
 
-import com.example.store.IntegrationTestBase;
+import com.example.store.base.IntegrationTestBase;
 import org.junit.Test;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
