@@ -3,8 +3,9 @@ package com.example.store.orders;
 import java.util.List;
 
 public class Order {
-    private List<OrderItem> orderItems;
+    private String id;
     private String userId;
+    private List<OrderItem> orderItems;
 
     public <T> void setOrderItems(List<OrderItem> orderItems) {
         this.orderItems = orderItems;
@@ -20,5 +21,13 @@ public class Order {
 
     public String getUserId() {
         return userId;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
     }
 }
