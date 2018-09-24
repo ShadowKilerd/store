@@ -5,7 +5,7 @@ user_id varchar(50) not null
 
 create table order_item (
 id varchar(50) not null primary key,
-order_id varchar(50) not null,
+order_id varchar(50),
 amount int not null,
 product_name varchar(50) not null,
 product_price decimal(10,2) not null,

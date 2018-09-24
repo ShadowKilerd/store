@@ -1,28 +1,38 @@
 package com.example.store.orders;
 
-import java.math.BigDecimal;
+import org.hibernate.annotations.GenericGenerator;
 
-public class OrderItem{
-    private BigDecimal price;
-    private String unit;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class OrderItem {
+    @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    private String id;
+
     private Integer amount;
-    private String imgUrl;
-    private String name;
 
-    public BigDecimal getPrice() {
-        return price;
+    @Embedded
+    private OrderProduct orderProduct;
+
+    public String getId() {
+        return id;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getUnit() {
-        return unit;
+    public OrderProduct getOrderProduct() {
+        return orderProduct;
     }
 
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setOrderProduct(OrderProduct orderProduct) {
+        this.orderProduct = orderProduct;
     }
 
     public Integer getAmount() {
@@ -33,19 +43,4 @@ public class OrderItem{
         this.amount = amount;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
