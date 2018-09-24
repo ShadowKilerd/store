@@ -2,10 +2,13 @@ package com.example.store.orders;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 import java.math.BigDecimal;
 
 @Embeddable
 public class OrderProduct {
+    @Transient
+    private Integer productId;
     @Column(name = "product_price")
     private BigDecimal price;
     @Column(name = "product_unit")
@@ -14,6 +17,14 @@ public class OrderProduct {
     private String imgUrl;
     @Column(name = "product_name")
     private String name;
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
 
     public BigDecimal getPrice() {
         return price;
@@ -30,7 +41,7 @@ public class OrderProduct {
     public void setUnit(String unit) {
         this.unit = unit;
     }
-    
+
     public String getImgUrl() {
         return imgUrl;
     }

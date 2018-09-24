@@ -1,7 +1,6 @@
 package com.example.store.products;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 
@@ -62,5 +61,9 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isOutOfAmount(Integer amount) {
+        return totalAmount.compareTo(amount) < 0;
     }
 }
