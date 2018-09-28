@@ -1,7 +1,6 @@
 package com.example.store.shoppingitems;
 
 import com.example.store.products.Product;
-import org.apache.catalina.User;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -13,11 +12,23 @@ public class ShoppingItem {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     
-    @OneToOne
-    @JoinColumn(name = "product_id")
+    @Transient
     private Product product;
+
+    private Integer productId;
+
     private Integer amount;
     private String userId;
+
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
+
 
     public Product getProduct() {
         return this.product;
@@ -33,6 +44,10 @@ public class ShoppingItem {
 
     public void setProduct(Product product) {
         this.product = product;
+        if (product != null) {
+            this.setProductId(product.getId());
+        }
+//        this.setProductId(product.getId());
     }
 
     public void setId(String id) {

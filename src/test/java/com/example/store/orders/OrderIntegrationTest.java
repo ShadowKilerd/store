@@ -25,6 +25,7 @@ public class OrderIntegrationTest extends IntegrationTestBase {
         Order order = new Order();
         OrderItem orderItem = new OrderItem();
         OrderProduct orderProduct = new OrderProduct();
+        orderProduct.setProductId(1);
         orderProduct.setName("可乐");
         orderProduct.setPrice(BigDecimal.valueOf(4.50));
         orderProduct.setUnit("瓶");
@@ -34,6 +35,7 @@ public class OrderIntegrationTest extends IntegrationTestBase {
 
         OrderItem orderItem1 = new OrderItem();
         OrderProduct orderProduct1 = new OrderProduct();
+        orderProduct1.setProductId(2);
         orderProduct1.setName("雪碧");
         orderProduct1.setPrice(BigDecimal.valueOf(3.50));
         orderProduct1.setUnit("瓶");

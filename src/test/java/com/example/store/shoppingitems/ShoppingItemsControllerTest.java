@@ -30,6 +30,7 @@ public class ShoppingItemsControllerTest {
     @Test
     public void should_create_shopping_item() throws Exception {
         ShoppingItem shoppingItem = new ShoppingItem();
+        shoppingItem.setProductId(1);
         shoppingItem.setId("shopping-item-id");
         given(shoppingItemService.save(any(ShoppingItem.class))).willReturn(shoppingItem);
 

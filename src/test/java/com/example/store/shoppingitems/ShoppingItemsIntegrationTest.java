@@ -21,8 +21,10 @@ public class ShoppingItemsIntegrationTest extends IntegrationTestBase {
     @Test
     public void should_create_shopping_item_by_user_id() {
         ShoppingItem item = new ShoppingItem();
-        item.setProduct(new Product());
-        item.getProduct().setId(1);
+        Product product = new Product();
+        product.setId(1);
+        item.setProduct(product);
+        item.setProductId(1);
         item.setAmount(10);
 
         URI uri = restTemplate.postForLocation("/api/users/user-id-1/shopping-items", item);
